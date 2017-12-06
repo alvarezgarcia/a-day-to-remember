@@ -30,6 +30,17 @@ function getItems(collection) {
 	})
 }
 
+function clearCollection(collection) {
+	return new Promise( (resolve, reject) => {
+
+		collection.remove({}, (err, result) => {
+			if(err) reject(err)
+
+			resolve({ok: true, msg: 'List empty'})
+		})
+	})
+}
+
 function send(res, contentType, payload) {
 
 	const header = contentType === 'json'? {'Content-Type': 'application/json'}:
@@ -68,6 +79,10 @@ function aDayToRemember(ctx, req, res) {
 			getItems(listCollection)
 			.then( items => send(res, 'html', htmlize(items)) )
 			.catch(err => send(res, 'json', JSON.stringify({msg: 'DB Error: Cannot get items'})) )
+		else if(op === 'clear')
+			clearCollection(listCollection)
+			.then(result => send(res, 'json', JSON.stringify(result)) )
+			.catch(err => send(res, 'json', JSON.stringify({msg: 'DB Error: Cannot clear items'})) )
 
 	})
 

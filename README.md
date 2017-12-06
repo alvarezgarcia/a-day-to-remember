@@ -5,6 +5,8 @@
 `a-day-to-remember` is an experiment involving the serverless architecture of Auth0 webtasks and
 taking advantage of [IFTTT](https://ifttt.com)  built in services, specifically Telegram bots.
 
+A working example is here: [A day to remember](https://wt-2d0c1b127ddf2114db57608a0d9ef965-0.run.webtask.io/a-day-to-remember)
+
 ## Endpoints example
 ## Base URL
 ```sh
@@ -32,13 +34,24 @@ Gets all the items that were added.
 
 #### Parameters
  - op: get
+
+### Clear list
+```sh
+$ curl -s "https://wt-2d0c1b127ddf2114db57608a0d9ef965-0.run.webtask.io/a-day-to-remember/?webtask_no_cache=1&op=clear"
+{"ok":true,"msg":"List empty"}
+
+```
+Clear the list.
+
+#### Parameters
+ - op: clear
   
 ## IFTTT Applets
 
-Two applets were added to my IFTTT account.
+Three applets were added to my IFTTT account.
 
 ### Add applet
-Interacts with ifttt telegram bot, every time y type:
+Interacts with ifttt telegram bot, every time I type:
 ```
 buy something
 ```
@@ -48,3 +61,12 @@ It will trigger the add item endpoint, adding the item to the list
 ### Remind applet
 Near the time I left my job it me sends an url  the grocery list I built with the previous commands.
 Triggering the get all endpoint and showing on browser.
+
+
+### Clear list applet
+Interacts with ifttt telegram bot, every time I type:
+```
+clear
+```
+
+It will trigger the clear list
