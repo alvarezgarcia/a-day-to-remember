@@ -50,6 +50,12 @@ Clear the list.
 
 Three applets were added to my IFTTT account.
 
+![Applets1](https://raw.githubusercontent.com/raichuk/a-day-to-remember/master/imgs/1.PNG)
+![Applets2](https://raw.githubusercontent.com/raichuk/a-day-to-remember/master/imgs/2.PNG)
+![Applets3](https://raw.githubusercontent.com/raichuk/a-day-to-remember/master/imgs/3.PNG)
+![Applets4](https://raw.githubusercontent.com/raichuk/a-day-to-remember/master/imgs/4.PNG)
+
+
 ### Add applet
 Interacts with ifttt telegram bot, every time I type:
 ```
